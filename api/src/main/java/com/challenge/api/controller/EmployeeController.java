@@ -1,13 +1,12 @@
 package com.challenge.api.controller;
 
 import com.challenge.api.model.Employee;
+import com.challenge.api.request.CreateEmployeeRequest;
 import com.challenge.api.service.EmployeeService;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 /**
  * Fill in the missing aspects of this Spring Web REST Controller. Don't forget to add a Service layer.
@@ -46,7 +45,8 @@ public class EmployeeController {
      * @param requestBody hint!
      * @return Newly created Employee
      */
-    public Employee createEmployee(Object requestBody) {
-        throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
+    @PostMapping
+    public Employee createEmployee(@RequestBody CreateEmployeeRequest requestBody) {
+        return employeeService.createEmployee(requestBody);
     }
 }
