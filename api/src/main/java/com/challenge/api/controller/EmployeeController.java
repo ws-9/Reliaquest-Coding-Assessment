@@ -5,6 +5,7 @@ import com.challenge.api.request.CreateEmployeeRequest;
 import com.challenge.api.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,7 @@ public class EmployeeController {
     @Operation(summary = "Create an employee", description = "Create a new employee with new information")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Employee createEmployee(@RequestBody CreateEmployeeRequest requestBody) {
+    public Employee createEmployee(@Valid @RequestBody CreateEmployeeRequest requestBody) {
         return employeeService.createEmployee(requestBody);
     }
 }

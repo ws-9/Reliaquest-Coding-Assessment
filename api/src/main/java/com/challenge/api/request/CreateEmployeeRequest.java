@@ -1,15 +1,29 @@
 package com.challenge.api.request;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import java.time.LocalDate;
 
 public class CreateEmployeeRequest {
+    @NotBlank(message = "firstName cannot be blank")
     private String firstName;
+
+    @NotBlank(message = "lastName cannot be blank")
     private String lastName;
-    private int salary;
-    private int age;
+
+    @NotNull(message = "salary cannot be null") @Positive(message = "Salary must be positive") private int salary;
+
+    @NotNull(message = "age cannot be null") @Positive(message = "Age must be positive") private int age;
+
+    @NotBlank(message = "jobTitle cannot be blank")
     private String jobTitle;
+
+    @NotBlank(message = "email cannot be blank")
     private String email;
-    private LocalDate contractHireDate;
+
+    @NotNull(message = "contractHireDate cannot be blank") private LocalDate contractHireDate;
+
     private LocalDate contractTerminationDate;
 
     public CreateEmployeeRequest() {}
