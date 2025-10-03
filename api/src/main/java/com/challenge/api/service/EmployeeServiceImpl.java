@@ -36,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private Employee createEmployeeRequestToEmployee(CreateEmployeeRequest request) {
         return new BasicEmployee(
-                UUID.randomUUID(),
+                null,
                 request.getFirstName(),
                 request.getLastName(),
                 request.getSalary(),
